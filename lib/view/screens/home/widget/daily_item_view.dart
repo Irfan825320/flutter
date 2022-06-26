@@ -124,10 +124,8 @@ class DailyItemView extends StatelessWidget {
                     productProvider.dailyItemList[index].discount > 0 ? Text(
                       PriceConverter.convertPrice(
                         context, productProvider.dailyItemList[index].price,
-                        discount: productProvider.dailyItemList[index].discount,
-                        discountType: productProvider.dailyItemList[index].discountType,
                       ),
-                      style: poppinsRegular.copyWith(fontSize: Dimensions.FONT_SIZE_EXTRA_SMALL, decoration: TextDecoration.lineThrough),
+                      style: poppinsRegular.copyWith(fontSize: Dimensions.FONT_SIZE_EXTRA_SMALL, color: ColorResources.RED_COLOR,decoration: TextDecoration.lineThrough),
                     ) : SizedBox(),
                   ],
                 ),

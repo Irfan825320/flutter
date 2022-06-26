@@ -4,7 +4,7 @@ import 'images.dart';
 class AppConstants {
   static const String APP_NAME = 'GroFresh';
   static const double APP_VERSION = 4.2;
-  static const String BASE_URL = 'https://tarchiareward.cf';
+  static const String BASE_URL = 'https://admin.foodholic.online';
   static const String CONFIG_URI = '/api/v1/config';
   static const String BANNER_URI = '/api/v1/banners';
   static const String CATEGORY_URI = '/api/v1/categories';

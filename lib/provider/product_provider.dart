@@ -212,34 +212,34 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //Momos List
-    void getMomoList(BuildContext context, String languageCode) async {
-    _momoList = [];
-    _hasData = true;
-    ApiResponse apiResponse = await productRepo.getBrandOrCategoryProductList("3", languageCode);
-    if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
-      _momoList = [];
-      apiResponse.response.data.forEach((product) => _momoList.add(Product.fromJson(product)));
-      _hasData = _momoList.length > 1;
-      List<Product> _products = [];
-      _products.addAll(_momoList);
-      List<double> _prices = [];
-      _products.forEach((product) => _prices.add(double.parse(product.price.toString())));
-      _prices.sort();
-      if(momoList.length!=0)
-      _maxValue = _prices[_prices.length - 1];
+  // //Momos List
+  //   void getMomoList(BuildContext context, String languageCode) async {
+  //   _momoList = [];
+  //   _hasData = true;
+  //   ApiResponse apiResponse = await productRepo.getBrandOrCategoryProductList("3", languageCode);
+  //   if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+  //     _momoList = [];
+  //     apiResponse.response.data.forEach((product) => _momoList.add(Product.fromJson(product)));
+  //     _hasData = _momoList.length > 1;
+  //     List<Product> _products = [];
+  //     _products.addAll(_momoList);
+  //     List<double> _prices = [];
+  //     _products.forEach((product) => _prices.add(double.parse(product.price.toString())));
+  //     _prices.sort();
+  //     if(momoList.length!=0)
+  //     _maxValue = _prices[_prices.length - 1];
 
-    } else {
-      ApiChecker.checkApi(context, apiResponse);
-    }
-    notifyListeners();
-  }
+  //   } else {
+  //     ApiChecker.checkApi(context, apiResponse);
+  //   }
+  //   notifyListeners();
+  // }
 
   //Roll List
     void getRollList(BuildContext context, String languageCode) async {
     _rollList = [];
     _hasData = true;
-    ApiResponse apiResponse = await productRepo.getBrandOrCategoryProductList("3", languageCode);
+    ApiResponse apiResponse = await productRepo.getBrandOrCategoryProductList("9", languageCode);
     if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
       _rollList = [];
       apiResponse.response.data.forEach((product) => _rollList.add(Product.fromJson(product)));
@@ -301,7 +301,7 @@ class ProductProvider extends ChangeNotifier {
     void getBurgerList(BuildContext context, String languageCode) async {
     _burgerList = [];
     _hasData = true;
-    ApiResponse apiResponse = await productRepo.getBrandOrCategoryProductList("3", languageCode);
+    ApiResponse apiResponse = await productRepo.getBrandOrCategoryProductList("5", languageCode);
     if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
       _burgerList = [];
       apiResponse.response.data.forEach((product) => _burgerList.add(Product.fromJson(product)));

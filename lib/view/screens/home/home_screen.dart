@@ -10,10 +10,13 @@ import 'package:flutter_grocery/view/base/title_widget.dart';
 import 'package:flutter_grocery/view/base/footer_view.dart';
 import 'package:flutter_grocery/view/base/web_app_bar/web_app_bar.dart';
 import 'package:flutter_grocery/view/screens/home/widget/banners_view.dart';
+import 'package:flutter_grocery/view/screens/home/widget/burger_view.dart';
 import 'package:flutter_grocery/view/screens/home/widget/category_view.dart';
 import 'package:flutter_grocery/view/screens/home/widget/daily_item_view.dart';
 import 'package:flutter_grocery/view/screens/home/widget/momos_view.dart';
+import 'package:flutter_grocery/view/screens/home/widget/noodles_view.dart';
 import 'package:flutter_grocery/view/screens/home/widget/product_view.dart';
+import 'package:flutter_grocery/view/screens/home/widget/roll_view.dart';
 import 'package:provider/provider.dart';
 
 
@@ -33,9 +36,15 @@ class _HomeScreenState extends State<HomeScreen> {
      Provider.of<BannerProvider>(context, listen: false).getBannerList(context, reload);
     await Provider.of<ProductProvider>(context, listen: false).getDailyItemList(context, reload,
       Provider.of<LocalizationProvider>(context, listen: false).locale.languageCode,);
-
-    Provider.of<ProductProvider>(context, listen: false).getMomoList(context,
+      
+//Modified Here ALso
+    Provider.of<ProductProvider>(context, listen: false).getRollList(context,
       Provider.of<LocalizationProvider>(context, listen: false).locale.languageCode,);
+        Provider.of<ProductProvider>(context, listen: false).getBurgerList(context,
+      Provider.of<LocalizationProvider>(context, listen: false).locale.languageCode,);
+        Provider.of<ProductProvider>(context, listen: false).getNoodlesList(context,
+      Provider.of<LocalizationProvider>(context, listen: false).locale.languageCode,);
+//Modification Ends Here
 
      Provider.of<ProductProvider>(context, listen: false).getPopularProductList(
        context,'1', true, Provider.of<LocalizationProvider>(context, listen: false).locale.languageCode);
@@ -90,7 +99,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         //test
 
                         Consumer<ProductProvider>(builder: (context, product, child) {
-                          return product.momoList == null ? MomosView() : product.momoList.length == 0 ? SizedBox() : MomosView();
+                          return product.rollList == null ? RollView() : product.rollList.length == 0 ? SizedBox() : RollView();
+                        }),
+
+                        Consumer<ProductProvider>(builder: (context, product, child) {
+                          return product.noodlesList == null ? NoodlesView() : product.noodlesList.length == 0 ? SizedBox() : NoodlesView();
+                        }),
+
+                        Consumer<ProductProvider>(builder: (context, product, child) {
+                          return product.burgerList == null ? BurgerView() : product.burgerList.length == 0 ? SizedBox() : BurgerView();
                         }),
                         //test
 

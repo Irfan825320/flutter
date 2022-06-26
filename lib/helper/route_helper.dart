@@ -146,10 +146,10 @@ class RouteHelper {
   static String getDailyItemRoute() => '$DAILY_ITEM';
   static String getMaintenanceRoute() => '$MAINTENANCE';
   //Routes Newly made Starts Here
-  static String MomosRoute()=>'$categoryProductsNew?id=3&subcategory=null';
-  static String RollRoute()=>'$categoryProductsNew?id=3&subcategory=null';
+  // static String MomosRoute()=>'$categoryProductsNew?id=3&subcategory=null';
+  static String RollRoute()=>'$categoryProductsNew?id=9&subcategory=null';
   static String NoodlesRoute()=>'$categoryProductsNew?id=3&subcategory=null';
-  static String BurgerRoute()=>'$categoryProductsNew?id=3&subcategory=null';
+  static String BurgerRoute()=>'$categoryProductsNew?id=5&subcategory=null';
   //Route Newly Made Ends Here
   static String getSearchResultRoute(String text) {
     List<int> _encoded = utf8.encode(text);

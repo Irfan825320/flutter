@@ -22,7 +22,7 @@ class RollView extends StatelessWidget {
 
         SizedBox(height: ResponsiveHelper.isDesktop(context) ? Dimensions.PADDING_SIZE_LARGE : 0),
 
-        TitleWidget(title: getTranslated('momos_item', context), onTap: () {
+        TitleWidget(title: getTranslated('roll_item', context), onTap: () {
           Navigator.pushNamed(context, RouteHelper.RollRoute());
         }),
 
@@ -124,10 +124,8 @@ class RollView extends StatelessWidget {
                     productProvider.rollList[index].discount > 0 ? Text(
                       PriceConverter.convertPrice(
                         context, productProvider.rollList[index].price,
-                        discount: productProvider.rollList[index].discount,
-                        discountType: productProvider.rollList[index].discountType,
                       ),
-                      style: poppinsRegular.copyWith(fontSize: Dimensions.FONT_SIZE_EXTRA_SMALL, decoration: TextDecoration.lineThrough),
+                      style: poppinsRegular.copyWith(fontSize: Dimensions.FONT_SIZE_EXTRA_SMALL, color: ColorResources.RED_COLOR,decoration: TextDecoration.lineThrough),
                     ) : SizedBox(),
                   ],
                 ),
